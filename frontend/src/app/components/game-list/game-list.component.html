@@ -1,0 +1,23 @@
+<!-- game almacena cada juego obtenido de games  -->
+<div class="col-md-4" *ngFor="let game of games">
+    <div class="card tex-center">
+        <div class="car-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{game.title}}
+            <!-- Boton con icono de eliminar btn-danger  -->
+            <button class="btn btn-danger" (click)="deleteGame(game.id)">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <!-- forma alternativa de imagenes  -->
+        <!-- <img src="{{game.image}}" class="card-img-top" alt=""> -->
+        <!-- una directiva para angular sepa que se esta pasando una imagen  -->
+        <img [src]="game.image" class="card-img-top" alt="">
+        <div class="card-body">
+            <p>{{game.descripcion}}</p>
+            <!-- consulta si esta funcionando bien recuperando el id  -->
+            <!-- <a class="btn btn-info btn-block" (click)="editGame(game.id)">Editar juego</a> -->
+            <!-- Redireciona a la ruta /games/edit directamente con el id que se obtiene  -->
+            <a [routerLink]="['/games/edit',game.id]" class="btn btn-info btn-block">Editar juego</a>
+        </div>
+    </div>
+</div>

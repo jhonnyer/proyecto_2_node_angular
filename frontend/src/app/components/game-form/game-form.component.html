@@ -1,0 +1,31 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <input type="text" name="title" [(ngModel)]="game.title" class="form-control" placeholder="Título" autofocus>
+                </div>
+                <div class="form-group">
+                    <textarea name="descripcion" [(ngModel)]="game.descripcion"  placeholder="Descripción" rows="2" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="image" [(ngModel)]="game.image"  class="form-control" placeholder="Imágen">
+                </div>
+                <!-- Si edit es true se va a actualizar el juego, si es falso se va a guardar un nuevo juego, llama funcion saveNewGame   -->
+                <!-- <button class="btn btn-success btn-block" (click)="edit ? updateGame(): saveNewGame()">Guardar</button> -->
+                <button class="btn btn-success btn-block" (click)="saveNewGame()">Guardar</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Espejo de tarjeta creada  -->
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <!-- si no hay imagen coloca una imagen por defecto, noImagen.png, caso contrario muestra la guardada en el formulario  -->
+        <img [src]="game.image == '' ? '/assets/noImagen.png': game.image" class="card-img-top">
+        <h3>{{game.id}}. {{game.title == '' ? 'Título del juego' :game.title}}</h3>
+        <p>{{game.descripcion == '' ? 'Escribe la descripción del juego' :game.descripcion}}</p>
+        <p>{{game.created_at | date:'yyyy-MM-dd'}}</p>
+    </div>
+</div>
