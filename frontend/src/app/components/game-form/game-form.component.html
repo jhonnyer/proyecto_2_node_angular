@@ -26,6 +26,6 @@
         <img [src]="game.image == '' ? '/assets/noImagen.png': game.image" class="card-img-top">
         <h3>{{game.id}}. {{game.title == '' ? 'Título del juego' :game.title}}</h3>
         <p>{{game.descripcion == '' ? 'Escribe la descripción del juego' :game.descripcion}}</p>
-        <p>{{game.created_at | date:'yyyy-MM-dd'}}</p>
+        <p>{{game.create_ad | date:'yyyy-MM-dd'}}</p>
     </div>
 </div>

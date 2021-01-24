@@ -77,6 +77,8 @@ class GamesController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             // res.json({tex:'actualizando un juego '+req.params.id});
+            console.log('peticiopn frontend');
+            console.log(req.body);
             const { id } = req.params;
             yield database_1.default.query('UPDATE game set ? where id=?', [req.body, id]);
             res.json({ message: "El juego fue actualizado" });

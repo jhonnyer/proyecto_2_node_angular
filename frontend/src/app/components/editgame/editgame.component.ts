@@ -22,7 +22,7 @@ export class EditgameComponent implements OnInit {
     title:'',
     descripcion:'',
     image:'',
-    created_at: new Date()
+    create_ad: new Date()
   };
 
 
@@ -71,7 +71,8 @@ export class EditgameComponent implements OnInit {
     // verificar objeto a actualizar 
     console.log(this.game);
     // la fecha de creación no se actualiza 
-    delete this.game.created_at;
+    delete this.game.create_ad;
+    delete this.game.id;
     this.gameService.updateGame(this.game.id, this.game)
     .subscribe(
       res=>{

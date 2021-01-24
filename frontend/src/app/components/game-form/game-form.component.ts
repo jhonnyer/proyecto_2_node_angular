@@ -22,7 +22,7 @@ export class GameFormComponent implements OnInit {
     title:'',
     descripcion:'',
     image:'',
-    created_at: new Date()
+    create_ad: new Date()
   };
 
 
@@ -52,7 +52,7 @@ export class GameFormComponent implements OnInit {
   saveNewGame(){
     // console.log(this.game);
     // Elimina los datos de creacion en el formulario porque la base de datos los crea automaticamente 
-    delete this.game.created_at;
+    delete this.game.create_ad;
     delete this.game.id;
     this.gameService.saveGame(this.game)
     .subscribe(

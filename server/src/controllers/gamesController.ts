@@ -55,6 +55,8 @@ class GamesController{
     }
     public async update (req:Request, res:Response):Promise<void>{
         // res.json({tex:'actualizando un juego '+req.params.id});
+        console.log('peticiopn frontend')
+        console.log(req.body);
         const{id}=req.params;
         await pool.query('UPDATE game set ? where id=?',[req.body, id]);
         res.json({message:"El juego fue actualizado"});
